@@ -27,6 +27,20 @@ $ git clone git@github.com:finalgene/docker-hub-lftp.git
 $ git clone https://github.com/finalgene/docker-hub-lftp.git
 ```
 
+This component uses [hadolint](https://github.com/hadolint/hadolint) for coding standards checks, and provides configuration for our selected checks.
+
+To build all container and running the checks:
+
+```bash
+$ make build
+```
+
+To build only one container and running the checks:
+
+```bash
+$ make 4.8
+```
+
 ## Recommended Workflow for Contributions
 
 Your first step is to establish a public repository from which we can pull your work into the master repository. We recommend using [GitHub](https://github.com), as that is where the component is already hosted.
