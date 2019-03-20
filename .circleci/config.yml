@@ -1,7 +1,7 @@
 version: 2
 
-.tempates:
-  .validate_template: &validate_template
+jobs:
+  validate:
     docker:
       -
         image: finalgene/hadolint:latest
@@ -13,8 +13,9 @@ version: 2
         run:
           name: Validate Dockerfile
           command: |
-            hadolint $VERSION/Dockerfile
-  .build_template: &build_template
+            hadolint Dockerfile
+
+  build:
     docker:
       -
         image: docker:18.05.0-ce-git
@@ -26,28 +27,18 @@ version: 2
         run:
           name: Build application Docker image
           command: |
-            docker build --tag lftp:$VERSION $VERSION/
+            docker build .
       -
         run:
           name: List created images
           command: |
             docker images
 
-jobs:
-  validate-4.8:
-    environment:
-      VERSION: "4.8"
-    <<: *validate_template
-  build-4.8:
-    environment:
-      VERSION: "4.8"
-    <<: *build_template
-
 workflows:
   version: 2
   validate_and_build:
     jobs:
-      - validate-4.8
-      - build-4.8:
+      - validate
+      - build:
           requires:
-            - validate-4.8
+            - validate

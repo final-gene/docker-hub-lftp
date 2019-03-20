@@ -4,9 +4,6 @@
 This is a image to run the [lftp client](https://lftp.yar.ru).
 Based on the idea from [Sebastian Mellor](https://github.com/sebble/docker-images) => [Light-weight deployment environment](https://github.com/sebble/docker-images/tree/master/deploy)
 
-## Supported tags and respective Dockerfile links
-* `4.8`, `latest` [(4.8/Dockerfile)](https://github.com/finalgene/docker-hub-lftp/blob/master/4.8/Dockerfile)
-
 ## How to use this image
 Run the `lftp` image:
 

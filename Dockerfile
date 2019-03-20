@@ -4,7 +4,7 @@ LABEL maintainer="frank.giesecke@final-gene.de"
 
 ENV LFTP_VERSION 4.8.3-r2
 
-RUN apk add --no-cache --virtual=.build-deps bash
+RUN apk add --no-cache bash
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -22,8 +22,6 @@ RUN { \
     echo 'set net:timeout 10'; \
     echo 'set ssl:verify-certificate no'; \
 } | tee /root/.lftprc
-
-RUN apk del .build-deps
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 

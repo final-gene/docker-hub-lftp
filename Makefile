@@ -1,29 +1,24 @@
 NAME = lftp
 
-VERSIONS = 4.8
-
-.PHONY: build
-build: ${VERSIONS}
-
-.PHONY: ${VERSIONS}
-${VERSIONS}:
-	@echo "Build ${@}"
-
+.PHONY: lint
+lint:
 	@docker run \
 		--rm \
 		--volume "$(shell pwd)":/app \
 		finalgene/hadolint \
-		${@}/Dockerfile
+		Dockerfile
 
+.PHONY: build
+build: lint
 	@docker build \
 		--no-cache \
-		--tag finalgene/${NAME}:${@}-dev \
-		${@}/
+		--tag finalgene/${NAME}:dev \
+		.
 
-	@docker images finalgene/${NAME}:${@}-dev
+	@docker images finalgene/${NAME}:dev
 
 .PHONY: clean
 clean:
 	-@docker rmi \
 		--force \
-		$(shell docker images finalgene/${NAME}:*-dev -q)
+		$(shell docker images finalgene/${NAME}:dev -q)
