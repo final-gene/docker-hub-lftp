@@ -4,7 +4,7 @@ LABEL maintainer="frank.giesecke@final-gene.de"
 
 ENV LFTP_VERSION 4.8.3-r2
 
-RUN apk add --no-cache bash
+RUN apk add --no-cache bash=4.4.19-r1
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
