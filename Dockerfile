@@ -1,17 +1,17 @@
-FROM alpine:3.8
+FROM alpine:3.13
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 
-ENV LFTP_VERSION 4.8.3-r2
+ENV LFTP_VERSION 4.9.2-r1
 
-RUN apk add --no-cache bash=4.4.19-r1
+# hadolint ignore=DL3018
+RUN apk add --no-cache bash
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN apk add --no-cache --virtual=.persistent \
-        "lftp=${LFTP_VERSION}"
-
-RUN { \
+        "lftp=${LFTP_VERSION}" \
+    && { \
     echo 'set cmd:fail-exit on'; \
     echo 'set dns:cache-enable off'; \
     echo 'set ftp:passive-mode on'; \
