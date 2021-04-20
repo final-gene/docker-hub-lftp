@@ -12,16 +12,16 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apk add --no-cache --virtual=.persistent \
         "lftp=${LFTP_VERSION}" \
     && { \
-    echo 'set cmd:fail-exit on'; \
-    echo 'set dns:cache-enable off'; \
-    echo 'set ftp:passive-mode on'; \
-    echo 'set ftp:ssl-allow off'; \
-    echo 'set mirror:no-empty-dirs off'; \
-    echo 'set net:max-retries 3'; \
-    echo 'set net:reconnect-interval-base 5'; \
-    echo 'set net:timeout 10'; \
-    echo 'set ssl:verify-certificate no'; \
-} | tee /root/.lftprc
+        echo 'set cmd:fail-exit on'; \
+        echo 'set dns:cache-enable off'; \
+        echo 'set ftp:passive-mode on'; \
+        echo 'set ftp:ssl-allow off'; \
+        echo 'set mirror:no-empty-dirs off'; \
+        echo 'set net:max-retries 3'; \
+        echo 'set net:reconnect-interval-base 5'; \
+        echo 'set net:timeout 10'; \
+        echo 'set ssl:verify-certificate no'; \
+    } | tee /root/.lftprc
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
