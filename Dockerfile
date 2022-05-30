@@ -2,15 +2,14 @@ FROM alpine:3.15
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 
-ENV LFTP_VERSION 4.9.2-r1
-
 # hadolint ignore=DL3018
 RUN apk add --no-cache bash
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+# hadolint ignore=DL3018
 RUN apk add --no-cache --virtual=.persistent \
-        "lftp=${LFTP_VERSION}" \
+        lftp \
     && { \
         echo 'set cmd:fail-exit on'; \
         echo 'set dns:cache-enable off'; \
