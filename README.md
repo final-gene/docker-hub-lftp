@@ -1,5 +1,4 @@
 # LFTP client
-[![CircleCI](https://circleci.com/gh/final-gene/docker-hub-lftp/tree/master.svg?style=svg)](https://circleci.com/gh/final-gene/docker-hub-lftp/tree/master) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7fea4bf3471641f59e057c46ea152b28)](https://www.codacy.com/app/final-gene/docker-hub-lftp?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=final-gene/docker-hub-lftp&amp;utm_campaign=Badge_Grade)
 
 This is a image to run the [lftp client](https://lftp.yar.ru).
 Based on the idea from [Sebastian Mellor](https://github.com/sebble/docker-images) => [Light-weight deployment environment](https://github.com/sebble/docker-images/tree/master/deploy)
