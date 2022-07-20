@@ -1,6 +1,8 @@
 # LFTP client
 
-This is a image to run the [lftp client](https://lftp.yar.ru).
+[![Docker build and publish](https://github.com/final-gene/docker-hub-lftp/actions/workflows/publish.yml/badge.svg)](https://github.com/final-gene/docker-hub-lftp/actions/workflows/publish.yml)
+
+This is an image to run the [lftp client](https://lftp.yar.ru).
 Based on the idea from [Sebastian Mellor](https://github.com/sebble/docker-images) => [Light-weight deployment environment](https://github.com/sebble/docker-images/tree/master/deploy)
 
 ## How to use this image
